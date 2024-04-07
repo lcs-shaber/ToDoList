@@ -28,7 +28,9 @@ struct LandingView: View {
             VStack{
                 
                 List {
-                    
+                    ScrollView{
+                        
+                    }
                 }
                 .searchable(text: $searchText)
                 
