@@ -14,6 +14,9 @@ struct LandingView: View {
     // The item currently being added:
     @State var newItemDescription: String = ""
     
+    //The list of items the user has added so far
+    @State var itemsAdded: String = ""
+    
     //The search Text
     @State var searchText = ""
     
@@ -30,6 +33,14 @@ struct LandingView: View {
                 .searchable(text: $searchText)
                 
                 HStack{
+                    TextField("Enter a Todo Item", text:$newItemDescription)
+                    
+                    Button {
+                        add()
+                    }
+                label: {
+                    Text("ADD")
+                }
                     
                 }
                 .padding(20)
@@ -39,6 +50,13 @@ struct LandingView: View {
             .navigationTitle("To do")
             
         }
+    }
+    
+    // MARK: Functions:
+    func add() {
+        //save the users guess
+        itemsAdded.append(newItemDescription)
+        
     }
     
     
