@@ -68,6 +68,16 @@ struct LandingView: View {
         
     }
     
+    func delete(_ todo: TodoItem) {
+        //Remove the provided todo item from the array
+        todos.removeAll() {
+            
+            
+            
+            
+            
+        }
+    }
     
     
     
