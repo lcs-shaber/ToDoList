@@ -14,9 +14,6 @@ struct LandingView: View {
     // The item currently being added:
     @State var newItemDescription: String = ""
     
-    //The list of items the user has added so far
-    @State var itemsAdded: [String] = []
-    
     //The list of todo items
     @State var todos: [TodoItem] = exampleItems
     
@@ -39,12 +36,13 @@ struct LandingView: View {
                 HStack{
                     TextField("Enter a Todo Item", text:$newItemDescription)
                     
-                    Button {
-                        add()
+                    Button("ADD") {
+                        //add the new todo item
+                        createTodo(withTitle: newItemDescription)
+                            
                     }
-                label: {
-                    Text("ADD")
-                }
+                    .font(.caption)
+                    .disabled(newItemDescription.isEmpty == true)
                     
                 }
                 .padding(20)
@@ -57,9 +55,16 @@ struct LandingView: View {
     }
     
     // MARK: Functions
-    func add() {
-        //save the users idea
-        itemsAdded.append(newItemDescription)
+    func createTodo(withTitle title: String) {
+        
+        //create the new todo item instance
+        let todo = TodoItem(
+            title: title,
+            done: false
+        )
+        
+        //append to the array
+        todos.append(todo)
         
     }
     
