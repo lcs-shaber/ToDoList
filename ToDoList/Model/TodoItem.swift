@@ -14,11 +14,11 @@ struct TodoItem: Identifiable {
 }
 
 
-let firstItem = TodoItem(title: "jhjsj", done: false)
+let firstItem = TodoItem(title: "Study for chemistry quiz", done: false)
 
-let secondItem = TodoItem(title: "dkhdhf", done: true)
+let secondItem = TodoItem(title: "Finish Computer Science assignment", done: true)
 
-let thirdItem = TodoItem(title: "khkdh", done: false)
+let thirdItem = TodoItem(title: "Go for a run around campus", done: false)
 
 
 let exampleItems = [
