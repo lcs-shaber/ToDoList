@@ -28,16 +28,13 @@ struct LandingView: View {
             VStack{
                 
                 List {
-                    ScrollView{
-                        VStack(spacing: 5) {
-                            ForEach(itemsAdded, id: \.self) { currentGuess in
-                                Text("\(currentGuess)")
-                                Divider()
-                            }
-                        }
-                        .padding()
-                        
-                    }
+                    
+                    Text("bb")
+                    
+                    Text("jjj")
+                    
+                    Text("hhhh")
+                    
                 }
                 .searchable(text: $searchText)
                 
@@ -61,9 +58,9 @@ struct LandingView: View {
         }
     }
     
-    // MARK: Functions:
+    // MARK: Functions
     func add() {
-        //save the users guess
+        //save the users idea
         itemsAdded.append(newItemDescription)
         
     }
