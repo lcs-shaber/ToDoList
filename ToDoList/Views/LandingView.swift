@@ -29,11 +29,21 @@ struct LandingView: View {
                 
                 List {
                     
-                    Text("bb")
+                    Label(
+                        title: { Text("sss") },
+                        icon: { Image(systemName: "circle") }
+                    )
                     
-                    Text("jjj")
+                    Label(
+                        title: { Text("jjj") },
+                        icon: { Image(systemName: "circle") }
+                    )
                     
-                    Text("hhhh")
+                    
+                    Label(
+                        title: { Text("hhh") },
+                        icon: { Image(systemName: "circle") }
+                    )
                     
                 }
                 .searchable(text: $searchText)
