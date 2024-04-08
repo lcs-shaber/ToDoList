@@ -29,20 +29,20 @@ struct LandingView: View {
                 
                 List {
                     
-                    Label(
-                        title: { Text("sss") },
-                        icon: { Image(systemName: "circle") }
+                    ItemView(
+                        title: "hhh",
+                        done: false
                     )
                     
-                    Label(
-                        title: { Text("jjj") },
-                        icon: { Image(systemName: "circle") }
+                    ItemView(
+                        title: "jjjj",
+                        done: true
                     )
                     
                     
-                    Label(
-                        title: { Text("hhh") },
-                        icon: { Image(systemName: "circle") }
+                    ItemView(
+                        title: "kkk",
+                        done: false
                     )
                     
                 }
@@ -83,4 +83,24 @@ struct LandingView: View {
 
 #Preview {
     LandingView()
+}
+
+struct ItemView: View {
+    
+    let title: String
+    let done: Bool
+    
+    var body: some View {
+        Label(
+            title: { Text(title) },
+            icon: {
+                if done == true {
+                    Image(systemName: "checkmark.circle")
+                }
+                else {
+                    Image(systemName: "circle")
+                }
+            }
+        )
+    }
 }
