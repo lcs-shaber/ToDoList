@@ -35,6 +35,8 @@ struct LandingView: View {
                                 Divider()
                             }
                         }
+                        .padding()
+                        
                     }
                 }
                 .searchable(text: $searchText)
