@@ -15,7 +15,7 @@ struct LandingView: View {
     @State var newItemDescription: String = ""
     
     //The list of items the user has added so far
-    @State var itemsAdded: String = ""
+    @State var itemsAdded: [String] = []
     
     //The search Text
     @State var searchText = ""
@@ -29,7 +29,12 @@ struct LandingView: View {
                 
                 List {
                     ScrollView{
-                        
+                        VStack(spacing: 5) {
+                            ForEach(itemsAdded, id: \.self) { currentGuess in
+                                Text("\(currentGuess)")
+                                Divider()
+                            }
+                        }
                     }
                 }
                 .searchable(text: $searchText)

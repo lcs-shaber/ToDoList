@@ -34,6 +34,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0397CB82BC3718B002E58F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E05E44822BC3375D007E1ADC = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +62,7 @@
 			children = (
 				E05E448E2BC3375D007E1ADC /* ToDoListApp.swift */,
 				E05E449D2BC337BD007E1ADC /* Helper */,
+				E0397CB82BC3718B002E58F0 /* Model */,
 				E05E449C2BC337A5007E1ADC /* Views */,
 				E05E44922BC33761007E1ADC /* Assets.xcassets */,
 				E05E44942BC33761007E1ADC /* Preview Content */,
