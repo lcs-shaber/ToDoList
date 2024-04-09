@@ -16,7 +16,7 @@ struct LandingView: View {
     @State var newItemDescription: String = ""
     
     //The list of todo items
-    @State var todos: [TodoItem] = exampleItems
+    @Query var todos: [TodoItem]
     
     //The search Text
     @State var searchText = ""
@@ -31,22 +31,17 @@ struct LandingView: View {
             
             VStack{
                 
-                List ($todos){ $todo in
-                    
-                    ItemView(currentItem: $todo)
-                    //delete a todo item
-                        .swipeActions{
-                            Button(
-                            "Delete",
-                            role: .destructive,
-                            action: {
-                                delete(todo)
-                            }
-                            )
-                        }
-                    
+                List {
+                    ForEach(todos) { todo in
+                        
+                        ItemView(currentItem: todo)
+                        
+                    }
+                    .onDelete(perform: removeRows)
+                                
                 }
                 .searchable(text: $searchText)
+                
                 
                 HStack{
                     TextField("Enter a Todo Item", text:$newItemDescription)
@@ -78,16 +73,21 @@ struct LandingView: View {
             done: false
         )
         
-        //append to the array
-        todos.append(todo)
+        //use the model context to insert the new to-do
+        modelContext.insert(todo)
         
     }
     
-    func delete(_ todo: TodoItem) {
-        //Remove the provided todo item from the array
-        todos.removeAll() {  currentItem in
-            currentItem.id == todo.id
-            
+    func removeRows(at offsets: IndexSet) {
+        
+        // Accept the offset within the list
+        // (the position of the item being deleted)
+        //
+        // Then ask the model context to delete this
+        // for us, from the 'todos' array
+        
+        for offset in offsets {
+            modelContext.delete(todos[offset])
         }
     }
     
