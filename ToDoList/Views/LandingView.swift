@@ -5,6 +5,7 @@
 //  Created by Sophie Haber on 07.04.24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct LandingView: View {
@@ -19,6 +20,9 @@ struct LandingView: View {
     
     //The search Text
     @State var searchText = ""
+    
+    // Access the model context (required to do additions, deletions, updates, et cetera)
+    @Environment(\.modelContext) var modelContext
     
     // MARK: Computed properties
     var body: some View {
