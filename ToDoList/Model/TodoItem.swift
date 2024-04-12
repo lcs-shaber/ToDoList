@@ -21,19 +21,26 @@ class TodoItem: Identifiable {
 }
 
 
-let firstItem = TodoItem(title: "Study for chemistry quiz", done: false)
-
-let secondItem = TodoItem(title: "Finish Computer Science assignment", done: true)
-
-let thirdItem = TodoItem(title: "Go for a run around campus", done: false)
-
-
-let exampleItems = [
-
-    firstItem,
+extension TodoItem {
     
-    secondItem,
-    
-    thirdItem,
-    
-]
+    @MainActor
+    static var preview: ModelContainer {
+        
+        let container = try! ModelContainer (
+            for: TodoItem.self,
+        configurations: ModelConfiguration (isStoredInMemoryOnly: true)
+        )
+        
+        //Add a mock data
+        container.mainContext.insert(
+        TodoItem(title: "Go for a walk", done: false)
+        )
+        container.mainContext.insert(TodoItem(title: "Have a nap", done: true)
+        )
+        container.mainContext.insert(
+        TodoItem(title: "Call mom", done: false)
+        )
+        
+        return container
+    }
+}
