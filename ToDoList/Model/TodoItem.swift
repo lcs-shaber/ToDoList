@@ -44,3 +44,9 @@ extension TodoItem {
         return container
     }
 }
+
+extension TodoItem {
+    
+    static let someItem = TodoItem(title: "Read book", done: true)
+    static let anotherItem = TodoItem(title: "Make a sandwich", done: false)
+}
